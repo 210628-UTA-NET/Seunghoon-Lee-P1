@@ -57,7 +57,7 @@ namespace Seunghoon_Lee_P1
                     pattern: "Admin/{controller=Home}/{action=Index}/{id?}/{slug?}");
                 endpoints.MapControllerRoute(
                     name: "",
-                    pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{brand}/{category}/{price}");
+                    pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{store}/{brand}/{category}/{price}");
                 endpoints.MapControllerRoute(
                     name: "",
                     pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
