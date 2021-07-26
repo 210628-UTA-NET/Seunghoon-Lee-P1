@@ -23,7 +23,10 @@ namespace Seunghoon_Lee_P1
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            services.AddRouting(options => options.LowercaseUrls = true);
+            services.AddMemoryCache();
+            services.AddSession();
+            services.AddControllersWithViews().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,14 +46,24 @@ namespace Seunghoon_Lee_P1
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapAreaControllerRoute(
+                    name: "admin",
+                    areaName: "Admin",
+                    pattern: "Admin/{controller=Home}/{action=Index}/{id?}/{slug?}");
+                endpoints.MapControllerRoute(
+                    name: "",
+                    pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}/filter/{brand}/{category}/{price}");
+                endpoints.MapControllerRoute(
+                    name: "",
+                    pattern: "{controller}/{action}/page/{pagenumber}/size/{pagesize}/sort/{sortfield}/{sortdirection}");
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}/{slug?}");
             });
         }
     }

@@ -8,7 +8,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.17">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.14" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Area\Admin\" />
+    <Folder Include="Models\DataLayer\Repositories\" />
+    <Folder Include="Models\DataLayer\SeedData\" />
+    <Folder Include="Models\DomainModels\" />
+    <Folder Include="Models\DTOs\" />
+    <Folder Include="Models\ExtensionMethods\" />
+    <Folder Include="Models\ViewModels\" />
+    <Folder Include="Views\Brand\" />
+    <Folder Include="Views\Category\" />
+    <Folder Include="Views\Order\" />
+    <Folder Include="Views\Product\" />
   </ItemGroup>
 
 </Project>
