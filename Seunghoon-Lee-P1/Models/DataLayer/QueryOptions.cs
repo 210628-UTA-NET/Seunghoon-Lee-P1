@@ -19,7 +19,7 @@ namespace Seunghoon_Lee_P1.Models.DataLayer
             set => includes = value.Replace(" ", "").Split(',');
         }
 
-        public string[] GetIncludes => includes ?? new string[0];
+        public string[] GetIncludes() => includes ?? new string[0];
 
         public WhereClauses<T> WhereClauses { get; set; }
         public Expression<Func<T, bool>> Where
