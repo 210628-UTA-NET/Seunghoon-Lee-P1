@@ -21,10 +21,7 @@ namespace Seunghoon_Lee_P1.Models.DataLayer.Repositories
         private int? count;
         public int Count => count ?? dbSet.Count();
 
-        public void Delete(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual void Delete(T entity) => dbSet.Remove(entity);
 
         public T Get(QueryOptions<T> options)
         {
@@ -41,25 +38,17 @@ namespace Seunghoon_Lee_P1.Models.DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public void Insert(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual void Insert(T entity) => dbSet.Add(entity);
 
         public IEnumerable<T> List(QueryOptions<T> options)
         {
             throw new NotImplementedException();
         }
 
-        public void Save()
-        {
-            throw new NotImplementedException();
-        }
+        public virtual void Save() => context.SaveChanges();
 
-        public void Update(T entity)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual void Update(T entity) => dbSet.Update(entity);
+
         
         //Helper method to build query expression
         private IQueryable<T> BuildQuery(QueryOptions<T> options)
