@@ -50,5 +50,28 @@ namespace Seunghoon_Lee_P1.Models.Grid
             }
             return clone;
         }
+
+        public string BrandFilter
+        {
+            get => Get(nameof(ProductGridDTO.Brand))?.Replace(FilterPrefix.Brand, "");
+            set => this[nameof(ProductGridDTO.Brand)] = value;
+        }
+        public string CategoryFilter
+        {
+            get => Get(nameof(ProductGridDTO.Category))?.Replace(FilterPrefix.Category, "");
+            set => this[nameof(ProductGridDTO.Category)] = value;
+        }
+        public string PriceFilter
+        {
+            get => Get(nameof(ProductGridDTO.Price))?.Replace(FilterPrefix.Price, "");
+            set => this[nameof(ProductGridDTO.Price)] = value;
+        }
+        public string StoreFilter
+        {
+            get => Get(nameof(ProductGridDTO.Store))?.Replace(FilterPrefix.Store, "");
+            set => this[nameof(ProductGridDTO.Store)] = value;
+        }
+
+        public void ClearFilters() => BrandFilter = CategoryFilter = PriceFilter = StoreFilter = ProductGridDTO.DefaultFilter;
     }
 }

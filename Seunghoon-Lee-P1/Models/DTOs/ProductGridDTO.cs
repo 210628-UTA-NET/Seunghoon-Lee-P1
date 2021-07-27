@@ -14,6 +14,7 @@ namespace Seunghoon_Lee_P1.Models.DTOs
         public string Brand { get; set; } = DefaultFilter;
         public string Category { get; set; } = DefaultFilter;
         public string Price { get; set; } = DefaultFilter;
+        public string Store { get; set; } = DefaultFilter;
 
 
     }
