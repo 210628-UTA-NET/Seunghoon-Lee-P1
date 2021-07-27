@@ -20,13 +20,13 @@ namespace Seunghoon_Lee_P1.Models.DomainModels
 
         private ISession session { get; set; }
         private IRequestCookieCollection requestCookies { get; set; }
-        private IResponseCookies responseCooki { get; set; }
+        private IResponseCookies responseCookies { get; set; }
 
         public Order(HttpContext context)
         {
             session = context.Session;
             requestCookies = context.Request.Cookies;
-            responseCooki = context.Response.Cookies;
+            responseCookies = context.Response.Cookies;
         }
 
         public void Load(Repository<Product> data)
@@ -61,7 +61,53 @@ namespace Seunghoon_Lee_P1.Models.DomainModels
                     }
                 }
                 Save();
+
             }
         }
+
+        public double SubTotal => lineItems.Sum(li => li.SubTotal);
+        public int? Count => session.GetInt32(CountKey) ?? requestCookies.GetInt32(CountKey);
+        public IEnumerable<LineItem> List => lineItems;
+
+        public LineItem GetById(int id) => lineItems.FirstOrDefault(li => li.Product.ProductId == id);
+
+        public void Add(LineItem lineItem)
+        {
+            var lineItemInOrder = GetById(lineItem.Product.ProductId);
+            if (lineItemInOrder == null)
+                lineItems.Add(lineItem);
+            else
+                lineItemInOrder.Quantity += 1;
+        }
+
+        public void Edit(LineItem lineItem)
+        {
+            var lineItemInOrder = GetById(lineItem.Product.ProductId);
+            if (lineItemInOrder != null)
+                lineItemInOrder.Quantity = lineItem.Quantity;
+        }
+
+        public void Remove(LineItem li) => lineItems.Remove(li);
+
+        public void Clear() => lineItems.Clear();
+
+        public void Save()
+        {
+            if(lineItems.Count == 0)
+            {
+                session.Remove(OrderKey);
+                session.Remove(CountKey);
+                responseCookies.Delete(OrderKey);
+                responseCookies.Delete(CountKey);
+            }
+            else
+            {
+                session.SetObject<List<LineItem>>(OrderKey, lineItems);
+                session.SetInt32(CountKey, lineItems.Count);
+                responseCookies.SetObject<List<LineItemDTO>>(OrderKey, lineItems.ToDTO());
+                responseCookies.SetInt32(CountKey, lineItems.Count);
+            }
+        }
+
     }
 }

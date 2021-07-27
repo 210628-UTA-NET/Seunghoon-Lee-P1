@@ -14,9 +14,9 @@ namespace Seunghoon_Lee_P1.Models.DataLayer
     {
         public void SortFilter(ProductsGridBuilder builder)
         {
-            
+
             //Filters
-            if(builder.IsFilterByBrand)
+            if (builder.IsFilterByBrand)
             {
                 if (builder.IsFilterByStore)
                 {
@@ -30,13 +30,13 @@ namespace Seunghoon_Lee_P1.Models.DataLayer
                     Where = p => p.CategoryId == builder.CurrentRoute.CategoryFilter;
                 if (builder.IsFilterByPrice)
                 {
-                    if(builder.CurrentRoute.PriceFilter == "under500")
+                    if (builder.CurrentRoute.PriceFilter == "under500")
                     {
                         Where = p => p.Price < 500;
                     }
-                    else if(builder.CurrentRoute.PriceFilter == "500to1000")
+                    else if (builder.CurrentRoute.PriceFilter == "500to1000")
                     {
-                        Where = p => (p.Price >= 500 && p.Price < 1000); 
+                        Where = p => (p.Price >= 500 && p.Price < 1000);
                     }
                     else
                     {
@@ -54,5 +54,6 @@ namespace Seunghoon_Lee_P1.Models.DataLayer
                 OrderBy = p => p.Price;
             else
                 OrderBy = p => p.Name;
+        }
     }
 }
