@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20210727021357_Initial.cs" />
+    <Compile Remove="Migrations\20210727021357_Initial.Designer.cs" />
+    <Compile Remove="Migrations\20210727022449_FixedTypeOfStateId.cs" />
+    <Compile Remove="Migrations\20210727022449_FixedTypeOfStateId.Designer.cs" />
+    <Compile Remove="Migrations\20210727023551_FixedStateId.cs" />
+    <Compile Remove="Migrations\20210727023551_FixedStateId.Designer.cs" />
+    <Compile Remove="Migrations\20210727023802_LengthOfStateId.cs" />
+    <Compile Remove="Migrations\20210727023802_LengthOfStateId.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.17">
@@ -19,6 +30,7 @@
 
   <ItemGroup>
     <Folder Include="Area\Admin\" />
+    <Folder Include="Migrations\" />
     <Folder Include="Models\DataLayer\Repositories\" />
     <Folder Include="Models\DTOs\" />
     <Folder Include="Models\ExtensionMethods\" />

@@ -25,7 +25,7 @@ namespace Seunghoon_Lee_P1.Models.DomainModels
         [MaxLength(40)]
         public string City { get; set; }
         [Required(ErrorMessage = "Please select state")]
-        [MaxLength(40)]
+        [MaxLength(2)]
         public string StateId { get; set; }
 
         public State State { get; set; }
