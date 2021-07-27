@@ -18,12 +18,6 @@ namespace Seunghoon_Lee_P1.Controllers
 
         private Repository<Product> data { get; set; }
         public HomeController(P1Context context) => data = new Repository<Product>(context);
- 
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }
 
         public IActionResult Index()
         {
