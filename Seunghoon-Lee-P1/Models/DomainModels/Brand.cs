@@ -8,7 +8,9 @@ namespace Seunghoon_Lee_P1.Models.DomainModels
 {
     public class Brand
     {
-        public int BrandId { get; set; }
+        [Required(ErrorMessage = "Please enter brand id")]
+        [MaxLength(10)]
+        public string BrandId { get; set; }
         [Required(ErrorMessage = "Please enter brand name")]
         [MaxLength(40)]
         public string Name { get; set; }

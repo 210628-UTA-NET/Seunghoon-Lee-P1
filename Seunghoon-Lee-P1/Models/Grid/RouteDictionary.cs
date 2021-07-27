@@ -68,7 +68,14 @@ namespace Seunghoon_Lee_P1.Models.Grid
         }
         public string StoreFilter
         {
-            get => Get(nameof(ProductGridDTO.Store))?.Replace(FilterPrefix.Store, "");
+            //get => Get(nameof(ProductGridDTO.Store))?.Replace(FilterPrefix.Store, "");
+            //store filter contains prefix, id, and slug (eg, store-8-lcg-ohio)
+            get
+            {
+                string s = Get(nameof(ProductGridDTO.Store))?.Replace(FilterPrefix.Store, "");
+                int index = s?.IndexOf('-') ?? -1;
+                return (index == -1) ? s : s.Substring(0, index);
+            }
             set => this[nameof(ProductGridDTO.Store)] = value;
         }
 

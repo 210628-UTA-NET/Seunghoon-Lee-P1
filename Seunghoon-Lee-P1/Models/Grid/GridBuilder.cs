@@ -25,7 +25,7 @@ namespace Seunghoon_Lee_P1.Models.Grid
             Routes = new RouteDictionary();
             Routes.PageNumber = p_griddto.PageNumber;
             Routes.PageSize = p_griddto.PageSize;
-            Routes.SortField = p_griddto.SortField;
+            Routes.SortField = p_griddto.SortField ?? defaultSortField;
             Routes.SortDirection = p_griddto.SortDirection;
 
             SaveRouteSegment();

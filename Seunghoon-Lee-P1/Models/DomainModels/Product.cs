@@ -16,9 +16,11 @@ namespace Seunghoon_Lee_P1.Models.DomainModels
         [Range(0.0, 1000000.0, ErrorMessage = "Price must be greater than 0")]
         public double Price { get; set; }
         [Required(ErrorMessage = "Please select brand")]
-        public int BrandId { get; set; }
+        [MaxLength(10)]
+        public string BrandId { get; set; }
         [Required(ErrorMessage = "Please select category")]
-        public int CategoryId { get; set; }
+        [MaxLength(10)]
+        public string CategoryId { get; set; }
 
         public Brand Brand { get; set; }
         public Category Category { get; set; }

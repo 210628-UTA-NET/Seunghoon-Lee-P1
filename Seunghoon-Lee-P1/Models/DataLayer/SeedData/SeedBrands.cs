@@ -13,16 +13,16 @@ namespace Seunghoon_Lee_P1.Models.DataLayer.SeedData
         public void Configure(EntityTypeBuilder<Brand> builder)
         {
             builder.HasData(
-                new Brand { BrandId = 1, Name = "Fender" },
-                new Brand { BrandId = 2, Name = "Gibson" },
-                new Brand { BrandId = 3, Name = "PRS" },
-                new Brand { BrandId = 4, Name = "Ibanez" },
-                new Brand { BrandId = 5, Name = "Squire" },
-                new Brand { BrandId = 6, Name = "Martin" },
-                new Brand { BrandId = 7, Name = "Taylor" },
-                new Brand { BrandId = 8, Name = "Gretch" },
-                new Brand { BrandId = 9, Name = "Yamaha" },
-                new Brand { BrandId = 10, Name = "Epiphone"}
+                new Brand { BrandId = "FD", Name = "Fender" },
+                new Brand { BrandId = "GS", Name = "Gibson" },
+                new Brand { BrandId = "PR", Name = "PRS" },
+                new Brand { BrandId = "IB", Name = "Ibanez" },
+                new Brand { BrandId = "SQ", Name = "Squire" },
+                new Brand { BrandId = "MT", Name = "Martin" },
+                new Brand { BrandId = "TL", Name = "Taylor" },
+                new Brand { BrandId = "GR", Name = "Gretch" },
+                new Brand { BrandId = "YM", Name = "Yamaha" },
+                new Brand { BrandId = "EP", Name = "Epiphone"}
                 );
         }
     }

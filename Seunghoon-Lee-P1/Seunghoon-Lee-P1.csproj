@@ -16,6 +16,12 @@
     <Compile Remove="Migrations\20210727023551_FixedStateId.Designer.cs" />
     <Compile Remove="Migrations\20210727023802_LengthOfStateId.cs" />
     <Compile Remove="Migrations\20210727023802_LengthOfStateId.Designer.cs" />
+    <Compile Remove="Migrations\20210727024235_initial.cs" />
+    <Compile Remove="Migrations\20210727024235_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210727151639_ChangedTypeOfIDs.cs" />
+    <Compile Remove="Migrations\20210727151639_ChangedTypeOfIDs.Designer.cs" />
+    <Compile Remove="Migrations\20210727152202_initial.cs" />
+    <Compile Remove="Migrations\20210727152202_initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
