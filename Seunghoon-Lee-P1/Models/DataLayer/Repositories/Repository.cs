@@ -23,26 +23,22 @@ namespace Seunghoon_Lee_P1.Models.DataLayer.Repositories
 
         public virtual void Delete(T entity) => dbSet.Remove(entity);
 
-        public T Get(QueryOptions<T> options)
+        public virtual T Get(QueryOptions<T> options)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = BuildQuery(options);
+            return query.FirstOrDefault();
         }
 
-        public T Get(int id)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual T Get(int id) => dbSet.Find(id);
 
-        public T Get(string id)
-        {
-            throw new NotImplementedException();
-        }
+        public virtual T Get(string id) => dbSet.Find(id);
 
         public virtual void Insert(T entity) => dbSet.Add(entity);
 
-        public IEnumerable<T> List(QueryOptions<T> options)
+        public virtual IEnumerable<T> List(QueryOptions<T> options)
         {
-            throw new NotImplementedException();
+            IQueryable<T> query = BuildQuery(options);
+            return query.ToList();
         }
 
         public virtual void Save() => context.SaveChanges();
