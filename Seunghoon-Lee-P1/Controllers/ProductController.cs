@@ -3,6 +3,7 @@ using Seunghoon_Lee_P1.Models.DataLayer;
 using Seunghoon_Lee_P1.Models.DataLayer.Repositories;
 using Seunghoon_Lee_P1.Models.DomainModels;
 using Seunghoon_Lee_P1.Models.DTOs;
+using Seunghoon_Lee_P1.Models.ExtensionMethods;
 using Seunghoon_Lee_P1.Models.Grid;
 using Seunghoon_Lee_P1.Models.ViewModels;
 using System;
@@ -44,6 +45,34 @@ namespace Seunghoon_Lee_P1.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public ViewResult ProductDetail(int id)
+        {
+            var product = data.Products.Get(new QueryOptions<Product>
+            {
+                Includes = "Inventories.Store, Brand, Category",
+                Where = p => p.ProductId == id
+            });
+
+            return View(product);
+        }
+
+        [HttpPost]
+        public RedirectToActionResult Filter(string[] filter, bool clear = false)
+        {
+            var builder = new ProductsGridBuilder(HttpContext.Session);
+            if (clear)
+                builder.ClearFilterSegments();
+            else
+            {
+                var store = data.Stores.Get(filter[0].ToInt());
+                builder.CurrentRoute.PageNumber = 1;
+                builder.LoadFilterSegments(filter, store);
+            }
+
+            builder.SaveRouteSegment();
+            return RedirectToAction("ProductList", builder.CurrentRoute);
         }
     }
 }

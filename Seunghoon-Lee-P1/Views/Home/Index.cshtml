@@ -1,12 +1,15 @@
 ﻿@model Seunghoon_Lee_P1.Models.DomainModels.Product
 
 <div class="text-center">
-    <h1>TRENDING GUITARS</h1>
+    <h1>LEE'S GUITAR</h1>
     <ul class="list-group">
-        <li class="list-group-item list-group-item-heading list-group-item-success">
-            <h5>
-                <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId">@Model.Name</a>
-            </h5>
+        <li class="list-group-item list-group-item-heading mt=10 mb=10">
+            <img src="~/img/store-slide-4-image.jpg" class="img-fluid" alt="...">
+        </li>
+        <li class="list-group-item list-group-item-heading mt=10 mb=10">
+            <h1>
+                <a asp-controller="Product" asp-action="ProductList">Guitars</a>
+            </h1>
         </li>
     </ul>
 </div>

@@ -1,0 +1,43 @@
+﻿@model Seunghoon_Lee_P1.Models.DomainModels.Product
+
+@{ 
+    ViewData["Title"] = " | Product Detail";
+}
+
+<h1>Product Detail</h1>
+
+<table class="table table-bordered table-sm">
+    <thead>
+        <tr class="thead-dark">
+            <th>Name</th>
+            <th>@Model.Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Brand</td>
+            <td>@Model.Brand.Name</td>
+        </tr>
+        <tr>
+            <td>Category</td>
+            <td>@Model.Category.Name</td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td>@Model.Price.ToString("c")</td>
+        </tr>
+        <tr>
+            <td>Available Stores</td>
+            <td>
+                @foreach(Seunghoon_Lee_P1.Models.DomainModels.Inventory i in Model.Inventories)
+                {
+                    <p>@i.Store.Name</p>
+                }
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<form asp-controller="Order" asp-action="Add" method="post">
+    <button type="submit" name="id" value="@Model.ProductId" class="btn btn-primary">Add to Cart</button>
+</form>

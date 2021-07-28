@@ -3,7 +3,7 @@
 @{ 
     ViewData["Title"] = " | Guitars";
     Seunghoon_Lee_P1.Models.Grid.RouteDictionary current = Model.CurrentRoute;
-    Seunghoon_Lee_P1.Models.Grid.RouteDictionary currentRoutes = Model.CurrentRoute.Clone();
+    Seunghoon_Lee_P1.Models.Grid.RouteDictionary routes = Model.CurrentRoute.Clone();
 }
 
 <h1>Guitars</h1>
@@ -32,8 +32,56 @@
                 <option value="@Seunghoon_Lee_P1.Models.DTOs.ProductGridDTO.DefaultFilter">All</option>
             </select>
 
-            <button type="submit" class="btn btn-primary mr-2">Filter</button>
-            <button type="submit" class="btn btn-primary" name="clear" value="true">Clear</button>
+            <button type="submit" class="btn btn-secondary mr-2">Filter</button>
+            <button type="submit" class="btn btn-secondary" name="clear" value="true">Clear</button>
         </form>
     </div>
 </div>
+
+<form asp-controller="Order" asp-action="Add" method="post">
+    <table class="table table-bordered table-striped table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Category.Name), current);}
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Category</a>
+                </th>
+                <th>
+                    @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Brand.Name), current);}
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Brand</a>
+                </th>
+                <th>
+                    @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Name), current);}
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Name</a>
+                </th>
+                <th>
+                    @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Price), current);}
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Price</a>
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Seunghoon_Lee_P1.Models.DomainModels.Product p in Model.Products)
+            {
+            <tr>
+                <td>
+                    @p.Category.Name
+                </td>
+                <td>
+                    @p.Brand.Name
+                </td>
+                <td>
+                    <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@p.ProductId">@p.Name</a>
+                </td>
+                <td>
+                    @p.Price.ToString("c")
+                </td>
+                <td>
+                    <button type="submit" name="id" value="@p.ProductId" class="btn btn-primary">Add to Cart</button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
