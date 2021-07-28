@@ -20,7 +20,7 @@ namespace Seunghoon_Lee_P1.Controllers
         
         public IActionResult Index() => RedirectToAction("StoreList");
 
-        public ViewResult List(GridDTO g_dto)
+        public ViewResult StoreList(GridDTO g_dto)
         {
             string defaultSort = nameof(Store.Name);
             var builder = new GridBuilder(HttpContext.Session, g_dto, defaultSort);
@@ -46,7 +46,7 @@ namespace Seunghoon_Lee_P1.Controllers
             return View(viewModel);
         }
 
-        public ViewResult Details(int id)
+        public ViewResult StoreDetails(int id)
         {
             var store = data.Get(new QueryOptions<Store>
             {

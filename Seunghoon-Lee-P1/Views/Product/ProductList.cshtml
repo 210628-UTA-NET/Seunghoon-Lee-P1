@@ -40,23 +40,23 @@
 
 <form asp-controller="Order" asp-action="Add" method="post">
     <table class="table table-bordered table-striped table-sm">
-        <thead>
+        <thead class="thead-dark">
             <tr>
                 <th>
                     @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Category), current);}
-                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Category</a>
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes" class="text-white">Category</a>
                 </th>
                 <th>
                     @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Brand), current);}
-                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Brand</a>
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes" class="text-white">Brand</a>
                 </th>
                 <th>
                     @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Name), current);}
-                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Name</a>
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes" class="text-white">Name</a>
                 </th>
                 <th>
                     @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Product.Price), current);}
-                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes">Price</a>
+                    <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@routes" class="text-white">Price</a>
                 </th>
                 <th></th>
             </tr>

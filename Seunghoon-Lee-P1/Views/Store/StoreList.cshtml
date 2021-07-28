@@ -1,0 +1,72 @@
+﻿@model Seunghoon_Lee_P1.Models.ViewModels.StoreListViewModel
+
+@{
+    ViewData["Title"] = " | Store List";
+    Seunghoon_Lee_P1.Models.Grid.RouteDictionary current = Model.CurrentRoute;
+    Seunghoon_Lee_P1.Models.Grid.RouteDictionary routes = Model.CurrentRoute.Clone();
+}
+
+<h1>Store List</h1>
+
+<table class="table table-bordered table-striped table-sm">
+    <thead class="thead-dark">
+        <tr>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Store.Name), current); }
+                <a asp-controller="Store" asp-action="StoreList" asp-all-route-data="@routes" class="text-white">Name</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Store.Email), current); }
+                <a asp-controller="Store" asp-action="StoreList" asp-all-route-data="@routes" class="text-white">Email</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Store.PhoneNumber), current); }
+                <a asp-controller="Store" asp-action="StoreList" asp-all-route-data="@routes" class="text-white">Phone</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Store.City), current); }
+                <a asp-controller="Store" asp-action="StoreList" asp-all-route-data="@routes" class="text-white">City</a>
+            </th>
+            <th>
+                @{ routes.SetSortAndDirection(nameof(Seunghoon_Lee_P1.Models.DomainModels.Store.State), current); }
+                <a asp-controller="Store" asp-action="StoreList" asp-all-route-data="@routes" class="text-white">State</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Seunghoon_Lee_P1.Models.DomainModels.Store store in Model.Stores)
+        {
+            <tr>
+                <td>
+                    <a asp-controller="Store" asp-action="StoreDetails" asp-route-id="@store.StoreId">@store.Name</a>
+                </td>
+                <td>
+                    @store.Email
+                </td>
+                <td>
+                    @store.PhoneNumber
+                </td>
+                <td>
+                    @store.City
+                </td>
+                <td>
+                    @store.StateId
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@*
+    @{
+
+        routes = Model.CurrentRoute.Clone();
+
+        for (int i = 1; i <= Model.TotalPages; i++)
+        {
+            routes.PageNumber = i;
+            <a asp-controller="Author" asp-action="List" asp-all-route-data="@routes"
+               class="btn btn-outline-primary @Seunghoon_Lee_P1.Models.ViewModels.Nav.Active(i, current.PageNumber)">@i</a>
+        }
+    }
+*@
