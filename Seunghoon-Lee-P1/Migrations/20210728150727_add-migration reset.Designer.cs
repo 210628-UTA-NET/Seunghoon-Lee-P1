@@ -9,8 +9,8 @@ using Seunghoon_Lee_P1.Models.DataLayer;
 namespace Seunghoon_Lee_P1.Migrations
 {
     [DbContext(typeof(P1Context))]
-    [Migration("20210728064803_initial")]
-    partial class initial
+    [Migration("20210728150727_add-migration reset")]
+    partial class addmigrationreset
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

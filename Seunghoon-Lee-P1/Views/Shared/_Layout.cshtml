@@ -19,7 +19,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-10">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-10">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">LEE'S GUITAR</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -37,43 +37,45 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="StoreList">Stores</a>
                         </li>
-                        
                     </ul>
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Order" asp-action="Index">Cart</a>
                         </li>
+                        @*
+        <!--
+        @using Microsoft.AspNetCore.Identity
+        @inject SignInManager<Seunghoon_Lee_P1.Models.DomainModels.User> signInManager
+        @if (signInManager.IsSignedIn(User))
+        {
+            <li class="nav-item">
+                <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
+                    <input type="submit" value="Log Out" class="btn btn-outline-light" />
+                    <span class="text-light">@User.Identity.Name</span>
+                </form>
+            </li>
+        }
+        else
+        {
+            var action = ViewContext.RouteData.Values["action"]?.ToString();
 
-                        @using Microsoft.AspNetCore.Identity
-                        @inject SignInManager<Seunghoon_Lee_P1.Models.DomainModels.User> signInManager
-                        @if (signInManager.IsSignedIn(User))
-                        {
-                            <li class="nav-item">
-                                <form method="post" asp-controller="Account" asp-action="LogOut" asp-area="">
-                                    <input type="submit" value="Log Out" class="btn btn-outline-light" />
-                                    <span class="text-light">@User.Identity.Name</span>
-                                </form>
-                            </li>
-                        }
-                        else
-                        {
-                            var action = ViewContext.RouteData.Values["action"]?.ToString();
+            <li class="nav-item @Seunghoon_Lee_P1.Models.ViewModels.Nav.Active("Register",action)">
+                <a asp-controller="Account" asp-action="Register" asp-area="" class="nav-link">
+                    <span class="fas fa-edit"></span>&nbsp;Register
+                </a>
+            </li>
+            <li class="nav-item">
+                <a asp-controller="Account" asp-action="Login" asp-area="" class="btn btn-outline-light">Log In</a>
+            </li>
+        }
 
-                            <li class="nav-item @Seunghoon_Lee_P1.Models.ViewModels.Nav.Active("Register",action)">
-                                <a asp-controller="Account" asp-action="Register" asp-area="" class="nav-link">
-                                    <span class="fas fa-edit"></span>&nbsp;Register
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a asp-controller="Account" asp-action="Login" asp-area="" class="btn btn-outline-light">Log In</a>
-                            </li>
-                        }
-
-                        <li class="nav-item @Seunghoon_Lee_P1.Models.ViewModels.Nav.Active("Admin", current)">
-                            <a class="nav-link" asp-area="Admin" asp-controller="Book" asp-action="Index">
-                                <span class="fas fa-cog"></span>&nbsp;Admin
-                            </a>
-                        </li>
+        <li class="nav-item @Seunghoon_Lee_P1.Models.ViewModels.Nav.Active("Admin", current)">
+            <a class="nav-link" asp-area="Admin" asp-controller="Book" asp-action="Index">
+                <span class="fas fa-cog"></span>&nbsp;Admin
+            </a>
+        </li>
+        -->
+         *@
                     </ul>
                     
                 </div>
@@ -89,7 +91,7 @@
             @RenderBody()
         </main>
     </div>
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer">
         <div class="container">
             &copy; 2021 - Seunghoon_Lee_P1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>

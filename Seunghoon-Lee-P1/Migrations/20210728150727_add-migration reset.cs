@@ -2,7 +2,7 @@
 
 namespace Seunghoon_Lee_P1.Migrations
 {
-    public partial class initial : Migration
+    public partial class addmigrationreset : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

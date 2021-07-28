@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿/*using Microsoft.AspNetCore.Identity;
 using Seunghoon_Lee_P1.Models.DomainModels;
 using System;
 using System.Collections.Generic;
@@ -13,3 +13,4 @@ namespace Seunghoon_Lee_P1.Areas.Admin.Models
         public IEnumerable<IdentityRole> Roles { get; set; }
     }
 }
+*/
