@@ -31,7 +31,7 @@ namespace Seunghoon_Lee_P1
             services.AddControllersWithViews().AddNewtonsoftJson();
 
             services.AddDbContext<P1Context>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("LocalDbContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("AzureDbContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

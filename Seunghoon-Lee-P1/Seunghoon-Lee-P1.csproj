@@ -22,6 +22,10 @@
     <Compile Remove="Migrations\20210727151639_ChangedTypeOfIDs.Designer.cs" />
     <Compile Remove="Migrations\20210727152202_initial.cs" />
     <Compile Remove="Migrations\20210727152202_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210727220744_initial.cs" />
+    <Compile Remove="Migrations\20210727220744_initial.Designer.cs" />
+    <Compile Remove="Migrations\20210728064330_initial.cs" />
+    <Compile Remove="Migrations\20210728064330_initial.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +39,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Area\Admin\" />
+    <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="Areas\Admin\Views\Product\" />
+    <Folder Include="Areas\Admin\Views\Store\" />
     <Folder Include="Migrations\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>

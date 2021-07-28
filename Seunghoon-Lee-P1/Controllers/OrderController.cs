@@ -14,11 +14,11 @@ using Seunghoon_Lee_P1.Models.ViewModels;
 namespace PavolsBookStore.Controllers
 {
     [Authorize]
-    public class CartController : Controller
+    public class OrderController : Controller
     {
         private Repository<Product> data { get; set; }
 
-        public CartController(P1Context context) => data = new Repository<Product>(context);
+        public OrderController(P1Context context) => data = new Repository<Product>(context);
 
         private Order GetOrder()
         {
@@ -74,7 +74,7 @@ namespace PavolsBookStore.Controllers
             }
 
             var builder = new ProductsGridBuilder(HttpContext.Session);
-            return RedirectToAction("List", "Product", builder.CurrentRoute);
+            return RedirectToAction("ProductList", "Product", builder.CurrentRoute);
         }
 
         [HttpPost]

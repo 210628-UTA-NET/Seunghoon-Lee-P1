@@ -9,7 +9,7 @@ using Seunghoon_Lee_P1.Models.DataLayer;
 namespace Seunghoon_Lee_P1.Migrations
 {
     [DbContext(typeof(P1Context))]
-    [Migration("20210727220744_initial")]
+    [Migration("20210728064803_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
