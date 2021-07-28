@@ -19,9 +19,9 @@ namespace Seunghoon_Lee_P1.Models.ViewModels
         public Dictionary<string, string> Prices =>
             new Dictionary<string, string>
             {
-                {"under500", "$0 - $500" },
+                {"0to500", "$0 - $500" },
                 {"500to1000", "$500 - $1000" },
-                {"over1000", "$1000 - $50000" }
+                {"1000to50000", "$1000 - $50000" }
             };
         public int[] PageSizes => new int[] { 5, 10, 20, 40};
     }
