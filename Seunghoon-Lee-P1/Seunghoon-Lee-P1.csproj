@@ -37,9 +37,6 @@
   <ItemGroup>
     <Folder Include="Area\Admin\" />
     <Folder Include="Migrations\" />
-    <Folder Include="Views\Brand\" />
-    <Folder Include="Views\Category\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="wwwroot\img\" />
   </ItemGroup>
 

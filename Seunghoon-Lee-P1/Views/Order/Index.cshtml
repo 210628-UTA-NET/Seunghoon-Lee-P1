@@ -1,0 +1,72 @@
+﻿@model Seunghoon_Lee_P1.Models.ViewModels.OrderViewModel
+
+@{
+    ViewData["Title"] = " | Cart";
+}
+
+<h1>Your cart</h1>
+<form asp-controller="Order" asp-action="Clear" method="post">
+    <ul>
+        <li class="list-group-item">
+            <div class="row">
+                <div class="col">
+                    Total: @Model.SubTotal.ToString("c")
+                </div>
+                <div class="col">
+                    <div class="float-right">
+                        <a asp-controller="Order" asp-action="Checkout" class="btn btn-primary">Checkout</a>
+                        <button type="submit" class="btn btn-primary">Clear Cart</button>
+                        <a asp-controller="Product" asp-action="ProductList" asp-all-route-data="@Model.ProductGridRoute">
+                            Back to Shopping
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </li>
+    </ul>
+</form>
+<form asp-controller="Order" asp-action="Remove" method="post">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Store(s)</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Seunghoon_Lee_P1.Models.DomainModels.LineItem item in Model.LineItems)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Product" asp-action="ProductDetail" asp-route-id="@item.Product.ProductId">
+                            @item.Product.Name
+                        </a>
+                    </td>
+                    <td>
+                        @foreach (var keyValuePair in item.Product.Stores)
+                        {
+                            <p>
+                                <a asp-controller="Store" asp-action="StoreDetails" asp-route-id="keyValuePair.Key">
+                                    @keyValuePair.Value
+                                </a>
+                            </p>
+                        }
+                    </td>
+                    <td>@item.Product.Price.ToString("c")</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.SubTotal.ToString("c")</td>
+                    <td>
+                        <div class="float-right">
+                            <a asp-controller="Order" asp-action="Edit" asp-route-id="@item.Product.ProductId" class="btn btn-primary">Edit</a>
+                            <button type="submit" name="id" value="@item.Product.ProductId" class="btn btn-primary">Remove</button>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
