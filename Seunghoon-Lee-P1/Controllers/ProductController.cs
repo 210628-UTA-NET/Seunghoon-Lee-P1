@@ -74,5 +74,17 @@ namespace Seunghoon_Lee_P1.Controllers
             builder.SaveRouteSegment();
             return RedirectToAction("ProductList", builder.CurrentRoute);
         }
+
+        [HttpPost]
+        public RedirectToActionResult PageSize(int pagesize)
+        {
+            var builder = new ProductsGridBuilder(HttpContext.Session);
+
+            builder.CurrentRoute.PageSize = pagesize;
+            builder.SaveRouteSegment();
+
+            return RedirectToAction("List", builder.CurrentRoute);
+        }
+
     }
 }
